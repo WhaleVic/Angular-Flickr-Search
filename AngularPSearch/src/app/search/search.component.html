@@ -1,24 +1,33 @@
 <div class="container">
-    <h1 class="text-center">Flickr Keyword Search</h1>
-    <div class="form-group">
-      <input type="search" class="form-control" [(ngModel)]="keyword" placeholder="Search images">
-      <button class="btn btn-primary ml-2" (click)="performSearch()">Search</button>
-    </div>
+  <h1 class="text-center">Flickr Keyword Search</h1>
+  <div class="form-group">
+    <input type="search" class="form-control" [(ngModel)]="keyword" placeholder="Search images">
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control" [(ngModel)]="tags" placeholder="Tags (comma-separated)">
+  </div>
+  <div class="form-group">
+    <input type="date" class="form-control" [(ngModel)]="minUploadDate" placeholder="Min Upload Date">
+  </div>
+  <div class="form-group">
+    <input type="date" class="form-control" [(ngModel)]="maxUploadDate" placeholder="Max Upload Date">
+  </div>
+  <button class="btn btn-primary ml-2" (click)="performSearch()">Search</button>
   
-    <div class="row">
-      <div class="col-sm-12 col-md-6 col-lg-4 p-3" *ngFor="let image of images">
-        <div class="card">
-          <a href="{{image.url}}_b.jpg">
-            <img src="{{image.url}}_m.jpg" title="{{image.title}}">
-          </a>
-        </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-4 p-3" *ngFor="let image of images">
+      <div class="card">
+        <a href="{{image.url}}_b.jpg">
+          <img src="{{image.url}}_m.jpg" title="{{image.title}}">
+        </a>
       </div>
     </div>
-    <div
-      class="search-results"
-      infiniteScroll
-      [infiniteScrollDistance]="2"
-      [infiniteScrollThrottle]="50"
-      (scrolled)="onScroll()">
-    </div>
   </div>
+  <div
+    class="search-results"
+    infiniteScroll
+    [infiniteScrollDistance]="2"
+    [infiniteScrollThrottle]="50"
+    (scrolled)="onScroll()">
+  </div>
+</div>
